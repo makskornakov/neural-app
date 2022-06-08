@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 
 import { circle } from '../functions/canvas';
+import { getRandomElementOfArray } from '../functions/utils';
 
 import { Canvas } from '../App.styled';
 import { trainingData, network } from '../global';
@@ -14,8 +15,7 @@ function trainMore() {
   const numberOfIterations = trainingData.length * 50;
 
   for (var i = 0; i < numberOfIterations; i++) {
-    // Get a random training sample
-    const trainingItem = trainingData[Math.floor(Math.random() * trainingData.length)];
+    const trainingItem = getRandomElementOfArray(trainingData);
     network.train(trainingItem.input, trainingItem.output);
   }
 }
