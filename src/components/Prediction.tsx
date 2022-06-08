@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { circle } from '../functions/canvas';
 import { getRandomElementOfArray } from '../functions/utils';
@@ -45,23 +45,57 @@ function Prediction() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [ctx, setCtx] = useCanvasContext(canvasRef);
 
+  const drawPredictions = useCallback(() => {
+    if (!ctx) return;
+
+    setCtx(activateRandomPoints(ctx));
+  }, [ctx, setCtx])
+
+  const [trainingInterval, setTrainingInterval] = useState<number>(0);
+  const [drawingInterval, setDrawingInterval] = useState<number>(0);
+
+  useEffect(() => {
+    if (trainingInterval === 0) return;
+
+    const interval = setInterval(() => {
+      trainMore();
+    }, trainingInterval);
+
+    return () => clearInterval(interval);
+  }, [trainingInterval]);
+  useEffect(() => {
+    if (drawingInterval === 0) return;
+
+    const interval = setInterval(() => {
+      drawPredictions();
+    }, drawingInterval);
+
+    return () => clearInterval(interval);
+  }, [drawPredictions, drawingInterval]);
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div>Prediction</div>
-      <button type="button" onClick={trainMore}>
-        Train more
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          if (!ctx) return;
-
-          console.log(network);
-          setCtx(activateRandomPoints(ctx));
-        }}
-      >
-        Draw predictions
-      </button>
+      <div>
+        <button type="button" onClick={trainMore}>
+          Train more
+        </button>
+        <input
+          placeholder="Training interval (ms)"
+          value={trainingInterval}
+          onChange={(e) => setTrainingInterval(Number(e.target.value))}
+        />
+      </div>
+      <div>
+        <button type="button" onClick={drawPredictions}>
+          Draw predictions
+        </button>
+        <input
+          placeholder="Drawing interval (ms)"
+          value={drawingInterval}
+          onChange={(e) => setDrawingInterval(Number(e.target.value))}
+        />
+      </div>
       <Canvas
         onClick={(event) => {
           if (!ctx) return;
