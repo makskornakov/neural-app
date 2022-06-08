@@ -6,6 +6,7 @@ import { getRandomElementOfArray } from '../functions/utils';
 import { Canvas } from '../App.styled';
 import { trainingData, network } from '../global';
 import type { TrainingSample } from '../types';
+import { useCanvasContext } from '../hooks/useCanvasContext';
 
 const canvasWidth = 400;
 
@@ -42,11 +43,7 @@ function activateRandomPoints(ctx: CanvasRenderingContext2D) {
 
 function Prediction() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [ctx, setCtx] = useState<CanvasRenderingContext2D>();
-  useEffect(() => {
-    if (!canvasRef.current) return;
-    setCtx(canvasRef.current.getContext('2d')!);
-  }, [canvasRef]);
+  const [ctx, setCtx] = useCanvasContext(canvasRef);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

@@ -5,6 +5,7 @@ import { circle } from '../functions/canvas';
 import { trainingData } from '../global';
 import { Vector2 } from '../types';
 import { Canvas } from '../App.styled';
+import { useCanvasContext } from '../hooks/useCanvasContext';
 
 const canvasWidth = 400;
 const numberOfRightGuessExamples = 1000;
@@ -44,11 +45,7 @@ function displayTrainees(
 
 function Training() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [ctx, setCtx] = useState<CanvasRenderingContext2D>();
-  useEffect(() => {
-    if (!canvasRef.current) return;
-    setCtx(canvasRef.current.getContext('2d')!);
-  }, [canvasRef]);
+  const [ctx, setCtx] = useCanvasContext(canvasRef);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
