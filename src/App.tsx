@@ -9,7 +9,7 @@ import Prediction from './components/Prediction';
 
 //   const conditions = {
 //     centerSquare: (rX > 0.25 && rX < 0.75) && (rY > 0.25 && rY < 0.75),
-//     smallSquere: rX < 0.5 && rY < 0.5,
+//     smallSquare: rX < 0.5 && rY < 0.5,
 //     lineFromTopLeftToBottomRight: rX > rY,
 //     lineInTheBottomRightCorner: (rX * rY < 0.5),
 //     lineFromBottomLeftToTopRight: (rX + rY < 1),
