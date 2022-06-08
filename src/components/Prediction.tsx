@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 
 import { circle } from '../functions/canvas';
 import { getRandomElementOfArray } from '../functions/utils';
