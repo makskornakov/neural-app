@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const MainContainer = styled.div`
     display: flex;
@@ -7,7 +7,7 @@ export const MainContainer = styled.div`
     justify-content: center;
 `;
 
-export const Canvas = styled.svg`
+export const Canvas = styled.canvas`
     outline: solid 0.5px;
     cursor: pointer;
 `;
