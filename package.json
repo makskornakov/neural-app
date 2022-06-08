@@ -17,6 +17,7 @@
     "svg.js": "^2.7.1",
     "typescript": "^4.6.4",
     "usehooks-ts": "^2.5.3",
+    "vt-neural-network": "^0.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
