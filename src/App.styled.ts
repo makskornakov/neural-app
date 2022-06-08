@@ -6,3 +6,8 @@ export const MainContainer = styled.div`
     align-items: center;
     justify-content: center;
 `;
+
+export const Canvas = styled.svg`
+    outline: solid 0.5px;
+    cursor: pointer;
+`;

@@ -1,4 +1,4 @@
-import { MainContainer } from './App.styled';
+import { MainContainer, Canvas } from './App.styled';
 import React, { useState } from "react";
 
 const canvasWidth = 400;
@@ -72,9 +72,10 @@ function App() {
 
   function clickCirle(ev: React.MouseEvent<SVGSVGElement, MouseEvent>) {
     const rect = ev.currentTarget.getBoundingClientRect();
-    const x = ev.clientX - rect.left; //x position within the element.
-    const y = ev.clientY - rect.top;  //y position within the element.
-    const cords = {x, y};
+    const cords = {
+      x: ev.clientX - rect.left,
+      y: ev.clientY - rect.top
+    };
     const myGuess = guess(weights, cords);
     const color = myGuess.sig > 0.5 ? 'red' : 'blue';
     const circle1 = <circle cx={cords.x} cy={cords.y} fill={color} r='2' />
@@ -85,10 +86,10 @@ function App() {
     <MainContainer>
       <h1>Neural Networks tests</h1>
       <h2>Automaticaly sort dots on the screen after training</h2>
-      <svg width="400" height="400" id="canvas" onClick={clickCirle}>
+      <Canvas width="400" height="400" id="canvas" onClick={clickCirle}>
         <line x1="0" x2="400" y1="0" y2="400" stroke="green" />
         {canvasAll.circles}
-      </svg>
+      </Canvas>
     </MainContainer>
   );
 }
