@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 import { circle } from '../functions/canvas';
 import { getRandomElementOfArray } from '../functions/utils';
@@ -7,6 +7,7 @@ import { Canvas } from '../App.styled';
 import { trainingData, network } from '../global';
 import type { TrainingSample } from '../types';
 import { useCanvasContext } from '../hooks/useCanvasContext';
+import { useLocalStorage } from 'usehooks-ts';
 
 const canvasWidth = 400;
 
@@ -51,8 +52,8 @@ function Prediction() {
     setCtx(activateRandomPoints(ctx));
   }, [ctx, setCtx])
 
-  const [trainingInterval, setTrainingInterval] = useState<number>();
-  const [drawingInterval, setDrawingInterval] = useState<number>();
+  const [trainingInterval, setTrainingInterval] = useLocalStorage<number | undefined>('trainingInterval', undefined);
+  const [drawingInterval, setDrawingInterval] = useLocalStorage<number | undefined>('drawingInterval', undefined);
 
   useEffect(() => {
     if (!trainingInterval) return;
