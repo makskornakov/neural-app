@@ -51,11 +51,11 @@ function Prediction() {
     setCtx(activateRandomPoints(ctx));
   }, [ctx, setCtx])
 
-  const [trainingInterval, setTrainingInterval] = useState<number>(0);
-  const [drawingInterval, setDrawingInterval] = useState<number>(0);
+  const [trainingInterval, setTrainingInterval] = useState<number>();
+  const [drawingInterval, setDrawingInterval] = useState<number>();
 
   useEffect(() => {
-    if (trainingInterval === 0) return;
+    if (!trainingInterval) return;
 
     const interval = setInterval(() => {
       trainMore();
@@ -64,7 +64,7 @@ function Prediction() {
     return () => clearInterval(interval);
   }, [trainingInterval]);
   useEffect(() => {
-    if (drawingInterval === 0) return;
+    if (!drawingInterval) return;
 
     const interval = setInterval(() => {
       drawPredictions();
