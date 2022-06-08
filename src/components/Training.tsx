@@ -47,6 +47,33 @@ function Training() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [ctx, setCtx] = useCanvasContext(canvasRef);
 
+  function ButtonToDrawShape({
+    shapeName,
+    drawingFunc,
+  }: {
+    shapeName: string;
+    drawingFunc: (localCtx: CanvasRenderingContext2D) => void;
+  }) {
+    return (
+      <button
+        type="button"
+        onClick={() => {
+          if (!ctx) return;
+
+          ctx.beginPath();
+          drawingFunc(ctx);
+          ctx.closePath();
+
+          ctx.stroke();
+
+          setCtx(ctx);
+        }}
+      >
+        Draw {shapeName}
+      </button>
+    );
+  }
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div>Training</div>
@@ -66,23 +93,11 @@ function Training() {
       >
         Add more right examples for training
       </button>
-      <button
-        type="button"
-        onClick={() => {
-          if (!ctx) return;
-
-          ctx.beginPath();
-          ctx.rect(100, 100, 200, 200);
-          // ctx.ellipse(200, 200, 100, 100, 0, 0, 2 * Math.PI);
-          ctx.closePath();
-
-          ctx.stroke();
-
-          setCtx(ctx);
-        }}
-      >
-        Draw shit
-      </button>
+      <ButtonToDrawShape
+        shapeName="ellipse"
+        drawingFunc={(localCtx) => localCtx.ellipse(200, 200, 100, 100, 0, 0, 2 * Math.PI)}
+      />
+      <ButtonToDrawShape shapeName="rect" drawingFunc={(localCtx) => localCtx.rect(100, 100, 200, 200)} />
       <Canvas
         onClick={(event) => {
           if (!ctx) return;
