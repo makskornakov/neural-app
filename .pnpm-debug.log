@@ -1,0 +1,23 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 info pnpm": {
+    "err": {
+      "name": "Error",
+      "message": "not found: ш",
+      "code": "ENOENT",
+      "stack": "Error: not found: ш\n    at getNotFoundError (/usr/local/Cellar/pnpm/7.1.5/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:41687:51)\n    at Function.whichSync [as sync] (/usr/local/Cellar/pnpm/7.1.5/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:41764:13)\n    at getCommandAbsolutePathSync (/usr/local/Cellar/pnpm/7.1.5/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:43329:44)\n    at default_1 (/usr/local/Cellar/pnpm/7.1.5/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:43338:32)\n    at /usr/local/Cellar/pnpm/7.1.5/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:172189:39"
+    }
+  },
+  "2 error pnpm": {
+    "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
+    "prefix": "/Users/makskornakov/web again/Darktest projects/nn2/my-app",
+    "err": {
+      "name": "pnpm",
+      "message": "not found: ш",
+      "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
+      "stack": "Error: not found: ш\n    at getNotFoundError (/usr/local/Cellar/pnpm/7.1.5/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:41687:51)\n    at Function.whichSync [as sync] (/usr/local/Cellar/pnpm/7.1.5/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:41764:13)\n    at getCommandAbsolutePathSync (/usr/local/Cellar/pnpm/7.1.5/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:43329:44)\n    at default_1 (/usr/local/Cellar/pnpm/7.1.5/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:43338:32)\n    at /usr/local/Cellar/pnpm/7.1.5/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:172189:39"
+    }
+  }
+}
