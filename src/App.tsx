@@ -30,7 +30,6 @@ import Prediction from './components/Prediction';
 // }
 
 function App() {
-
   // function clickAndDraw(event: React.MouseEvent<SVGSVGElement>) {
   //   const rect = event.currentTarget.getBoundingClientRect();
   //   const x = (event.clientX - rect.left); //x position within the element.
@@ -57,8 +56,6 @@ function App() {
   //     setCanvasAll((prev) => ({ circles: [...prev.circles, circle1] }));
   //   }
   // }, [])
-
-
 
   return (
     <MainContainer>
