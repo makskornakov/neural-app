@@ -7,13 +7,12 @@ import { trainingData, network } from '../global';
 import type { TrainingSample } from '../types';
 
 const canvasWidth = 400;
-const trainingLength = trainingData.length;
 
 const amountOfCirclesToDraw = 1000;
 
-const numberOfIterations = trainingLength * 50; // numberOfRightGuessExamples * 50
-
 function trainMore() {
+  const numberOfIterations = trainingData.length * 50;
+
   for (var i = 0; i < numberOfIterations; i++) {
     // Get a random training sample
     const trainingItem = trainingData[Math.floor(Math.random() * trainingData.length)];
