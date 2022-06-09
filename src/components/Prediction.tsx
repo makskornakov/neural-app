@@ -68,7 +68,7 @@ function Prediction() {
     if (!drawingInterval) return;
 
     const interval = setInterval(() => {
-      drawPredictions();
+      requestAnimationFrame(drawPredictions);
     }, drawingInterval);
 
     return () => clearInterval(interval);
