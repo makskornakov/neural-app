@@ -71,7 +71,6 @@ function App() {
         <path d='M 0 0 L 400 400' stroke='black' strokeWidth='2' />
         <path d='M 0 400 L 400 0' stroke='black' strokeWidth='2' />
         {canvasAll.circles} */}
-        
     </MainContainer>
   );
 }
