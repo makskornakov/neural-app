@@ -29,7 +29,7 @@ function activateRandomPoints(ctx: CanvasRenderingContext2D) {
     network.activate(input);
     const result: TrainingSample['output'] = network.run();
 
-    const color = result[0] > result[1] ? 'red' : 'blue';
+    const color = result[0] > result[1] ? 'white' : 'black';
     const cords = [x * canvasWidth, y * canvasWidth];
 
     ctx.beginPath();
