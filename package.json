@@ -25,6 +25,7 @@
     "build": "react-app-rewired build",
     "build:production": "GENERATE_SOURCEMAP=false react-scripts build",
     "postbuild": "ln -s index.html build/404.html"
+    
   },
   "eslintConfig": {
     "extends": [
