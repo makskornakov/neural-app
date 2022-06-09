@@ -74,6 +74,8 @@ function Prediction() {
     return () => clearInterval(interval);
   }, [drawPredictions, drawingInterval]);
 
+  const [shouldUsePostProcessing, setShouldUsePostProcessing] = useLocalStorage('shouldUsePostProcessing', false);
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div>Prediction</div>
@@ -98,6 +100,12 @@ function Prediction() {
         />
       </div>
       <Canvas
+        style={shouldUsePostProcessing ? {
+          overflow: 'hidden',
+          zIndex: -1,
+          clipPath: 'border-box',
+          filter: 'blur(5px) contrast(5)'
+        } : undefined}
         onClick={(event) => {
           if (!ctx) return;
 
@@ -111,6 +119,12 @@ function Prediction() {
         width={canvasWidth}
         height={canvasWidth}
       />
+      <label>
+        <input type="checkbox" checked={shouldUsePostProcessing} onChange={() => {
+          setShouldUsePostProcessing(!shouldUsePostProcessing);
+        }} />
+        Use post-processing
+      </label>
     </div>
   );
 }
