@@ -1,12 +1,15 @@
 {
   "files": {
-    "main.css": "/neural-app/static/css/main.4efb37a3.css",
-    "main.js": "/neural-app/static/js/main.2bcb9db0.js",
-    "static/js/156.1fce6832.chunk.js": "/neural-app/static/js/156.1fce6832.chunk.js",
-    "index.html": "/neural-app/index.html"
+    "main.css": "/neural-app/static/css/main.e6c13ad2.css",
+    "main.js": "/neural-app/static/js/main.d794d49b.js",
+    "static/js/791.7af61153.chunk.js": "/neural-app/static/js/791.7af61153.chunk.js",
+    "index.html": "/neural-app/index.html",
+    "main.e6c13ad2.css.map": "/neural-app/static/css/main.e6c13ad2.css.map",
+    "main.d794d49b.js.map": "/neural-app/static/js/main.d794d49b.js.map",
+    "791.7af61153.chunk.js.map": "/neural-app/static/js/791.7af61153.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4efb37a3.css",
-    "static/js/main.2bcb9db0.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.d794d49b.js"
   ]
 }
