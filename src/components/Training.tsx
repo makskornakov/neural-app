@@ -110,6 +110,10 @@ function Training() {
           shapeName="ellipse"
           drawingFunc={(localCtx) => localCtx.ellipse(200, 200, 100, 100, 0, 0, 2 * Math.PI)}
         />
+        <ButtonToDrawShape shapeName="cross" drawingFunc={(localCtx) => {
+          localCtx.rect(175, 50, 50, 300);
+          localCtx.rect(50, 175, 300, 50);
+        }}/>
         <ButtonToDrawShape shapeName="triangle" drawingFunc={(localCtx) => {
           localCtx.moveTo(200, 100);
           localCtx.lineTo(100, 300);
