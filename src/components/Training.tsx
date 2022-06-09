@@ -47,7 +47,7 @@ function Training() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [ctx, setCtx] = useCanvasContext(canvasRef);
 
-  const [shouldAddExamplesOnDraw, setShouldAddExamplesOnDraw] = useLocalStorage('shouldAddExamplesOnDraw', false);
+  const [shouldAddExamplesOnDraw, setShouldAddExamplesOnDraw] = useLocalStorage('shouldAddExamplesOnDraw', true);
 
   const addExamples = useCallback(() => {
     if (!ctx) return;

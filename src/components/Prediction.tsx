@@ -52,8 +52,8 @@ function Prediction() {
     setCtx(activateRandomPoints(ctx));
   }, [ctx, setCtx])
 
-  const [trainingInterval, setTrainingInterval] = useLocalStorage<number | undefined>('trainingInterval', undefined);
-  const [drawingInterval, setDrawingInterval] = useLocalStorage<number | undefined>('drawingInterval', undefined);
+  const [trainingInterval, setTrainingInterval] = useLocalStorage<number | undefined>('trainingInterval', 1000);
+  const [drawingInterval, setDrawingInterval] = useLocalStorage<number | undefined>('drawingInterval', 10);
 
   useEffect(() => {
     if (!trainingInterval) return;
@@ -74,7 +74,7 @@ function Prediction() {
     return () => clearInterval(interval);
   }, [drawPredictions, drawingInterval]);
 
-  const [shouldUsePostProcessing, setShouldUsePostProcessing] = useLocalStorage('shouldUsePostProcessing', false);
+  const [shouldUsePostProcessing, setShouldUsePostProcessing] = useLocalStorage('shouldUsePostProcessing', true);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
