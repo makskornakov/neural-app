@@ -16,13 +16,13 @@ jobs:
 
       - name: Install dependencies (development)
         # It automatically lints before building, so devDependencies are required.
-        run: cd front && pnpm i
+        run: pnpm i
 
       - name: Build 🔧
-        run: cd front && pnpm build:production
+        run: pnpm build:production
 
       - name: Postbuild
-        run: cd front && pnpm postbuild
+        run: pnpm postbuild
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
