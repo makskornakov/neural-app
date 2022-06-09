@@ -2,7 +2,7 @@
   "name": "df3",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://makskornakov.github.io/",
+  "homepage": "https://makskornakov.github.io/neural-app",
   "dependencies": {
     "@types/node": "^16.11.35",
     "@types/react": "^18.0.9",
@@ -52,6 +52,7 @@
     "@types/styled-components": "^5.1.25",
     "babel-plugin-styled-components": "^2.0.7",
     "customize-cra": "^1.0.0",
+    "gh-pages": "^4.0.0",
     "react-app-rewired": "^2.2.1"
   }
 }
