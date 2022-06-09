@@ -104,7 +104,7 @@ function Prediction() {
           overflow: 'hidden',
           zIndex: -1,
           clipPath: 'border-box',
-          filter: 'blur(5px) contrast(5)'
+          filter: 'blur(5px) contrast(7)'
         } : undefined}
         onClick={(event) => {
           if (!ctx) return;
