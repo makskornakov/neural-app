@@ -2,7 +2,7 @@
   "name": "df3",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://makskornakov.github.io/neural-app/",
+  "homepage": "https://makskornakov.github.io/",
   "dependencies": {
     "@types/node": "^16.11.35",
     "@types/react": "^18.0.9",
