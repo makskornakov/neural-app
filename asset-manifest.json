@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/neural-app/static/css/main.4efb37a3.css",
+    "main.js": "/neural-app/static/js/main.2bcb9db0.js",
+    "static/js/156.1fce6832.chunk.js": "/neural-app/static/js/156.1fce6832.chunk.js",
+    "index.html": "/neural-app/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.4efb37a3.css",
+    "static/js/main.2bcb9db0.js"
+  ]
+}
