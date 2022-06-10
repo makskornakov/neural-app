@@ -10,6 +10,8 @@ import { useCanvasContext } from '../hooks/useCanvasContext';
 
 const canvasWidth = 400;
 const numberOfRightGuessExamples = 1000;
+const colorA = 'cyan';
+const colorB = '#ff00a2';
 
 function generateTrainingData(ctx: CanvasRenderingContext2D) {
   for (let i = 0; i < numberOfRightGuessExamples; i++) {
@@ -32,7 +34,7 @@ function displayTrainees(
       y: el.input[1] * canvasWidth,
     };
     const pointIsInShape = el.output[0] < el.output[1];
-    const color = pointIsInShape ? 'cyan' : 'magenta';
+    const color = pointIsInShape ? colorA : colorB;
 
     ctx.beginPath();
     ctx.fillStyle = color;

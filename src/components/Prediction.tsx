@@ -13,6 +13,9 @@ const canvasWidth = 400;
 
 const amountOfCirclesToDraw = 1000;
 
+const colorA = 'cyan';
+const colorB = '#121213';
+
 function trainMore() {
   const numberOfIterations = trainingData.length * 50;
 
@@ -29,7 +32,7 @@ function activateRandomPoints(ctx: CanvasRenderingContext2D) {
     network.activate(input);
     const result: TrainingSample['output'] = network.run();
 
-    const color = result[0] > result[1] ? 'white' : 'black';
+    const color = result[1] > result[0] ? colorA : colorB;
     const cords = [x * canvasWidth, y * canvasWidth];
 
     ctx.beginPath();
@@ -82,7 +85,9 @@ function Prediction() {
     'shouldUsePostProcessing',
     true
   );
-
+  function cleanNetwork() {
+    // network.cleanMe();
+  }
   return (
     <div
       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
@@ -142,6 +147,9 @@ function Prediction() {
         />
         Use post-processing
       </label>
+      <button type="button" onClick={cleanNetwork}>
+        De learn
+      </button>
     </div>
   );
 }
