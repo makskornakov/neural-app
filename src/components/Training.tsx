@@ -138,7 +138,7 @@ function Training() {
           drawingFunc={(localCtx) => localCtx.rect(100, 100, 200, 200)}
         />
         <ButtonToDrawShape
-          shapeName="pinus"
+          shapeName="rocket"
           drawingFunc={(localCtx) => {
             // ball 0
             localCtx.moveTo(100 + 70, 300);

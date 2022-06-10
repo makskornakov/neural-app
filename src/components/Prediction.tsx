@@ -12,18 +12,44 @@ import { useLocalStorage } from 'usehooks-ts';
 const canvasWidth = 400;
 
 const amountOfCirclesToDraw = 1000;
+const multiplier = 5;
 
 const colorA = 'cyan';
 const colorB = '#121213';
 
 function trainMore() {
-  const numberOfIterations = trainingData.length * 50;
+  const numberOfIterations = trainingData.length * multiplier;
 
   for (var i = 0; i < numberOfIterations; i++) {
     const trainingItem = getRandomElementOfArray(trainingData);
     network.train(trainingItem.input, trainingItem.output);
   }
 }
+
+function activateMatrixPoints(ctx: CanvasRenderingContext2D) {
+  for (var i = 1; i < canvasWidth / 10; i++) {
+    for (var ii = 1; ii < canvasWidth / 10; ii++) {
+      const x = (i * 10) / canvasWidth;
+      const y = (ii * 10) / canvasWidth;
+
+      const input = [x, y];
+      network.activate(input);
+      const result: TrainingSample['output'] = network.run();
+
+      const color = result[1] > result[0] ? colorA : colorB;
+      const cords = [x * canvasWidth, y * canvasWidth];
+
+      ctx.beginPath();
+      circle(ctx, cords[0], cords[1], 2);
+      ctx.fillStyle = color;
+      ctx.closePath();
+      ctx.fill();
+    }
+  }
+
+  return ctx;
+}
+
 function activateRandomPoints(ctx: CanvasRenderingContext2D) {
   for (var i = 0; i < amountOfCirclesToDraw; i++) {
     const x = Math.random();
@@ -52,7 +78,8 @@ function Prediction() {
   const drawPredictions = useCallback(() => {
     if (!ctx) return;
 
-    setCtx(activateRandomPoints(ctx));
+    // setCtx(activateRandomPoints(ctx));
+    setCtx(activateMatrixPoints(ctx));
   }, [ctx, setCtx]);
 
   const [trainingInterval, setTrainingInterval] = useLocalStorage<
