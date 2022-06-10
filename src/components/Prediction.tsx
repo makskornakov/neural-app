@@ -26,6 +26,7 @@ function trainMore() {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function activateMatrixPoints(ctx: CanvasRenderingContext2D) {
   for (var i = 1; i < canvasWidth / 10; i++) {
     for (var ii = 1; ii < canvasWidth / 10; ii++) {
@@ -50,6 +51,7 @@ function activateMatrixPoints(ctx: CanvasRenderingContext2D) {
   return ctx;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function activateRandomPoints(ctx: CanvasRenderingContext2D) {
   for (var i = 0; i < amountOfCirclesToDraw; i++) {
     const x = Math.random();
