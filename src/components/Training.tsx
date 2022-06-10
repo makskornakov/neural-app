@@ -5,7 +5,7 @@ import { circle } from '../functions/canvas';
 
 import { trainingData } from '../global';
 import { Vector2 } from '../types';
-import { Canvas } from '../App.styled';
+import { Canvas, Button } from '../App.styled';
 import { useCanvasContext } from '../hooks/useCanvasContext';
 
 const canvasWidth = 400;
@@ -69,7 +69,7 @@ function Training() {
     drawingFunc: (localCtx: CanvasRenderingContext2D) => void;
   }) {
     return (
-      <button
+      <Button
         type="button"
         onClick={() => {
           if (!ctx) return;
@@ -86,7 +86,7 @@ function Training() {
         }}
       >
         Draw {shapeName}
-      </button>
+      </Button>
     );
   }
 
@@ -96,9 +96,9 @@ function Training() {
     >
       <div>Training</div>
       <div>
-        <button type="button" onClick={addExamples}>
+        <Button type="button" onClick={addExamples}>
           Add more right examples for training
-        </button>
+        </Button>
         <label>
           <input
             type="checkbox"

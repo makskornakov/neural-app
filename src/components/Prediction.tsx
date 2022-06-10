@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import { circle } from '../functions/canvas';
 import { getRandomElementOfArray } from '../functions/utils';
 
-import { Canvas } from '../App.styled';
+import { Canvas, Button } from '../App.styled';
 import { trainingData, network } from '../global';
 import type { TrainingSample } from '../types';
 import { useCanvasContext } from '../hooks/useCanvasContext';
@@ -94,9 +94,9 @@ function Prediction() {
     >
       <div>Prediction</div>
       <div>
-        <button type="button" onClick={trainMore}>
+        <Button type="button" onClick={trainMore}>
           Train more
-        </button>
+        </Button>
         <input
           placeholder="Training interval (ms)"
           value={trainingInterval}
@@ -104,9 +104,9 @@ function Prediction() {
         />
       </div>
       <div>
-        <button type="button" onClick={drawPredictions}>
+        <Button type="button" onClick={drawPredictions}>
           Draw predictions
-        </button>
+        </Button>
         <input
           placeholder="Drawing interval (ms)"
           value={drawingInterval}
@@ -147,9 +147,9 @@ function Prediction() {
         />
         Use post-processing
       </label>
-      <button type="button" onClick={cleanNetwork}>
+      <Button type="button" onClick={cleanNetwork}>
         De learn
-      </button>
+      </Button>
     </div>
   );
 }
