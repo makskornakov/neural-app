@@ -1,5 +1,5 @@
 import { useCallback, useRef } from 'react';
-import {useLocalStorage} from 'usehooks-ts';
+import { useLocalStorage } from 'usehooks-ts';
 
 import { circle } from '../functions/canvas';
 
@@ -24,7 +24,7 @@ function generateTrainingData(ctx: CanvasRenderingContext2D) {
 
 function displayTrainees(
   trainArr: typeof trainingData,
-  ctx: CanvasRenderingContext2D,
+  ctx: CanvasRenderingContext2D
 ) {
   trainArr.forEach((el) => {
     const cords = {
@@ -47,16 +47,16 @@ function Training() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [ctx, setCtx] = useCanvasContext(canvasRef);
 
-  const [shouldAddExamplesOnDraw, setShouldAddExamplesOnDraw] = useLocalStorage('shouldAddExamplesOnDraw', true);
+  const [shouldAddExamplesOnDraw, setShouldAddExamplesOnDraw] = useLocalStorage(
+    'shouldAddExamplesOnDraw',
+    true
+  );
 
   const addExamples = useCallback(() => {
     if (!ctx) return;
 
     generateTrainingData(ctx);
-    setCtx(displayTrainees(
-      trainingData,
-      ctx,
-    ));
+    setCtx(displayTrainees(trainingData, ctx));
   }, [ctx, setCtx]);
 
   function ButtonToDrawShape({
@@ -89,51 +89,68 @@ function Training() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+    >
       <div>Training</div>
       <div>
-        <button
-          type="button"
-          onClick={addExamples}
-        >
+        <button type="button" onClick={addExamples}>
           Add more right examples for training
         </button>
-      <label>
-        <input type="checkbox" checked={shouldAddExamplesOnDraw} onChange={() => {
-          setShouldAddExamplesOnDraw(!shouldAddExamplesOnDraw);
-        }} />
-        Sample on draw
-      </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={shouldAddExamplesOnDraw}
+            onChange={() => {
+              setShouldAddExamplesOnDraw(!shouldAddExamplesOnDraw);
+            }}
+          />
+          Sample on draw
+        </label>
       </div>
       <div>
         <ButtonToDrawShape
           shapeName="ellipse"
-          drawingFunc={(localCtx) => localCtx.ellipse(200, 200, 100, 100, 0, 0, 2 * Math.PI)}
+          drawingFunc={(localCtx) =>
+            localCtx.ellipse(200, 200, 100, 100, 0, 0, 2 * Math.PI)
+          }
         />
-        <ButtonToDrawShape shapeName="cross" drawingFunc={(localCtx) => {
-          localCtx.rect(165, 50, 70, 300);
-          localCtx.rect(50, 165, 300, 70);
-        }}/>
-        <ButtonToDrawShape shapeName="triangle" drawingFunc={(localCtx) => {
-          localCtx.moveTo(200, 100);
-          localCtx.lineTo(100, 300);
-          localCtx.lineTo(300, 300);
-          localCtx.lineTo(200, 100);
-        }} />
-        <ButtonToDrawShape shapeName="rect" drawingFunc={(localCtx) => localCtx.rect(100, 100, 200, 200)} />
-        <ButtonToDrawShape shapeName="pinus" drawingFunc={(localCtx) => {
-          // ball 0
-          localCtx.moveTo(100 + 70, 300);
-          circle(localCtx, 100, 300, 70);
+        <ButtonToDrawShape
+          shapeName="cross"
+          drawingFunc={(localCtx) => {
+            localCtx.rect(165, 50, 70, 300);
+            localCtx.rect(50, 165, 300, 70);
+          }}
+        />
+        <ButtonToDrawShape
+          shapeName="triangle"
+          drawingFunc={(localCtx) => {
+            localCtx.moveTo(200, 100);
+            localCtx.lineTo(100, 300);
+            localCtx.lineTo(300, 300);
+            localCtx.lineTo(200, 100);
+          }}
+        />
+        <ButtonToDrawShape
+          shapeName="rect"
+          drawingFunc={(localCtx) => localCtx.rect(100, 100, 200, 200)}
+        />
+        <ButtonToDrawShape
+          shapeName="pinus"
+          drawingFunc={(localCtx) => {
+            // ball 0
+            localCtx.moveTo(100 + 70, 300);
+            circle(localCtx, 100, 300, 70);
 
-          // ball 2
-          localCtx.moveTo(300 + 70, 300);
-          circle(localCtx, 300, 300, 70);
+            // ball 2
+            localCtx.moveTo(300 + 70, 300);
+            circle(localCtx, 300, 300, 70);
 
-          // stvol
-          localCtx.moveTo(240, 200);
-          localCtx.ellipse(200, 200, 40, 150, 0, 0, 2 * Math.PI);
-        }} />
+            // stvol
+            localCtx.moveTo(240, 200);
+            localCtx.ellipse(200, 200, 40, 150, 0, 0, 2 * Math.PI);
+          }}
+        />
       </div>
       <Canvas
         onClick={(event) => {

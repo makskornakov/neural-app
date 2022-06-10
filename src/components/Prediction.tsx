@@ -50,10 +50,14 @@ function Prediction() {
     if (!ctx) return;
 
     setCtx(activateRandomPoints(ctx));
-  }, [ctx, setCtx])
+  }, [ctx, setCtx]);
 
-  const [trainingInterval, setTrainingInterval] = useLocalStorage<number | undefined>('trainingInterval', 1000);
-  const [drawingInterval, setDrawingInterval] = useLocalStorage<number | undefined>('drawingInterval', 10);
+  const [trainingInterval, setTrainingInterval] = useLocalStorage<
+    number | undefined
+  >('trainingInterval', 1000);
+  const [drawingInterval, setDrawingInterval] = useLocalStorage<
+    number | undefined
+  >('drawingInterval', 10);
 
   useEffect(() => {
     if (!trainingInterval) return;
@@ -74,10 +78,15 @@ function Prediction() {
     return () => clearInterval(interval);
   }, [drawPredictions, drawingInterval]);
 
-  const [shouldUsePostProcessing, setShouldUsePostProcessing] = useLocalStorage('shouldUsePostProcessing', true);
+  const [shouldUsePostProcessing, setShouldUsePostProcessing] = useLocalStorage(
+    'shouldUsePostProcessing',
+    true
+  );
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+    >
       <div>Prediction</div>
       <div>
         <button type="button" onClick={trainMore}>
@@ -100,12 +109,16 @@ function Prediction() {
         />
       </div>
       <Canvas
-        style={shouldUsePostProcessing ? {
-          overflow: 'hidden',
-          zIndex: -1,
-          clipPath: 'border-box',
-          filter: 'blur(5px) contrast(7)'
-        } : undefined}
+        style={
+          shouldUsePostProcessing
+            ? {
+                overflow: 'hidden',
+                zIndex: -1,
+                clipPath: 'border-box',
+                filter: 'blur(5px) contrast(7)',
+              }
+            : undefined
+        }
         onClick={(event) => {
           if (!ctx) return;
 
@@ -120,9 +133,13 @@ function Prediction() {
         height={canvasWidth}
       />
       <label>
-        <input type="checkbox" checked={shouldUsePostProcessing} onChange={() => {
-          setShouldUsePostProcessing(!shouldUsePostProcessing);
-        }} />
+        <input
+          type="checkbox"
+          checked={shouldUsePostProcessing}
+          onChange={() => {
+            setShouldUsePostProcessing(!shouldUsePostProcessing);
+          }}
+        />
         Use post-processing
       </label>
     </div>
