@@ -19,7 +19,7 @@ specifiers:
   svg.js: ^2.7.1
   typescript: ^4.6.4
   usehooks-ts: ^2.5.4
-  vt-neural-network: ^0.0.4
+  vt-neural-network-ts: ^0.0.6
   web-vitals: ^2.1.4
 
 dependencies:
@@ -36,7 +36,7 @@ dependencies:
   svg.js: 2.7.1
   typescript: 4.7.3
   usehooks-ts: 2.5.4_react@18.1.0
-  vt-neural-network: 0.0.4
+  vt-neural-network-ts: 0.0.6
   web-vitals: 2.1.4
 
 devDependencies:
@@ -8443,8 +8443,8 @@ packages:
     resolution: {integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=}
     engines: {node: '>= 0.8'}
 
-  /vt-neural-network/0.0.4:
-    resolution: {integrity: sha512-Iwpl0B1biWbZfgoTzMe6KN/yaLnZISf+89u9HfrfYUnx4PAyMTSNSSD/e4KhwXUJ82DfmAFQ1HsJLaIW541STg==}
+  /vt-neural-network-ts/0.0.6:
+    resolution: {integrity: sha512-FF/OayEut8ZgDdW0iKXrbk6pqUHJcruTdw0pyjHV7fCbHdYzMHYt+YMsoT2VVEdER3MHQHcwgMp6oJAxkNUiLA==}
     dev: false
 
   /w3c-hr-time/1.0.2:

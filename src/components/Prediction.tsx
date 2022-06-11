@@ -35,7 +35,7 @@ function activateMatrixPoints(ctx: CanvasRenderingContext2D) {
 
       const input = [x, y];
       network.activate(input);
-      const result: TrainingSample['output'] = network.run();
+      const result = network.run() as TrainingSample['output'];
 
       const color = result[1] > result[0] ? colorA : colorB;
       const cords = [x * canvasWidth, y * canvasWidth];
@@ -58,7 +58,7 @@ function activateRandomPoints(ctx: CanvasRenderingContext2D) {
     const y = Math.random();
     const input = [x, y];
     network.activate(input);
-    const result: TrainingSample['output'] = network.run();
+    const result = network.run() as TrainingSample['output'];
 
     const color = result[1] > result[0] ? colorA : colorB;
     const cords = [x * canvasWidth, y * canvasWidth];
