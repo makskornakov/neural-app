@@ -80,8 +80,8 @@ function Prediction() {
   const drawPredictions = useCallback(() => {
     if (!ctx) return;
 
-    // setCtx(activateRandomPoints(ctx));
-    setCtx(activateMatrixPoints(ctx));
+    setCtx(activateRandomPoints(ctx));
+    // setCtx(activateMatrixPoints(ctx));
   }, [ctx, setCtx]);
 
   const [trainingInterval, setTrainingInterval] = useLocalStorage<
