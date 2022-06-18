@@ -1,4 +1,3 @@
-// @ts-expect-error
 import { Network } from 'vt-neural-network-ts';
 
 import { TrainingSample } from './types';
